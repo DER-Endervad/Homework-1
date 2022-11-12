@@ -4,7 +4,7 @@
 int main()
 {
     setlocale(LC_ALL, "Russian");
-    std::ifstream file("C:\\C++\\Homework 1\\in.txt"); // тут напишите свой путь к файлу.
+    std::ifstream file("in.txt");
     if (file.is_open()) {
         int size_N = 0, number_N = 0;
         file >> size_N;
@@ -19,24 +19,30 @@ int main()
         for (int i = 0; i < size_M; i++) {
             file >> arr_M[i];
         }
+        file.close;
 
-        std::ofstream out("C:\\C++\\Homework 1\\out.txt", std::ios::app); // тут напишите свой путь к файлу.
-        out << size_M; out << '\n';
-        out << arr_M[size_M - 1]; out << ' ';
-        for (int i = 0; i < (size_M-1); i++) {
-            out << arr_M[i];
-            out << ' ';
-        }
-        out << '\n';
-        delete[] arr_M;
+        std::ofstream out("out.txt", std::ios::app);
+        if (out.is_open()) {
+            out << size_M; out << '\n';
+            out << arr_M[size_M - 1]; out << ' ';
+            for (int i = 0; i < (size_M - 1); i++) {
+                out << arr_M[i];
+                out << ' ';
+            }
+            out << '\n';
+            delete[] arr_M;
 
-        out << size_N; out << '\n';
-        for (int i = 1; i < size_N; i++) {
-            out << arr_N[i];
-            out << ' ';
+            out << size_N; out << '\n';
+            for (int i = 1; i < size_N; i++) {
+                out << arr_N[i];
+                out << ' ';
+            }
+            out << arr_N[0]; out << '\n';
+            delete[] arr_N;
         }
-        out << arr_N[0]; out << '\n';
-        delete[] arr_N;
+        else {
+            std::cout << "Файл для записи не открылся" << std::endl;
+        }
     }
     else {
         std::cout << "Файл не открылся" << std::endl;
