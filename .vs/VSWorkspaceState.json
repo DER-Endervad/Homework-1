@@ -1,7 +1,8 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\Debug"
   ],
-  "SelectedNode": "\\Homework 1.cpp",
-  "PreviewInSolutionExplorer": false
+  "SelectedNode": "\\Debug\\vc143.idb",
+  "PreviewInSolutionExplorer": true
 }

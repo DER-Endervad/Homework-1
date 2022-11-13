@@ -19,7 +19,7 @@ int main()
         for (int i = 0; i < size_M; i++) {
             file >> arr_M[i];
         }
-        file.close;
+        file.close();
 
         std::ofstream out("out.txt", std::ios::app);
         if (out.is_open()) {
@@ -39,6 +39,7 @@ int main()
             }
             out << arr_N[0]; out << '\n';
             delete[] arr_N;
+            out.close();
         }
         else {
             std::cout << "Файл для записи не открылся" << std::endl;
